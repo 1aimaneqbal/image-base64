@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import ImageComponent from './components/ImageComponent'
+import TextareaComponent from './components/TextareaComponent'
+import { UilExchangeAlt } from '@iconscout/react-unicons'
+import './styles/main.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [showTab, setShowTab] = useState(true)
+    const [image64, setImage64] = useState('')
+    const showImgCompHandler= () =>{
+        setShowTab(true)
+    }
+    const showTextCompHandler= () =>{
+        setShowTab(false)
+    }
+    return (
+        <>
+            <nav>
+                <h2>Image</h2>
+                <UilExchangeAlt />
+                <h2>Base64</h2>
+            </nav>
+            <div className="switcher">
+                <div className={`showComp ${showTab?'activeComp':''}`} onClick={showImgCompHandler}>Image</div>
+                <div className={`showComp ${showTab?'':'activeComp'}`} onClick={showTextCompHandler}>Code</div>
+            </div>
+            <div className="container">
+                <form>
+                    {
+                        showTab ? (
+                            <ImageComponent image64={image64} setImage64={setImage64}/>
+                        ):(
+                            <TextareaComponent image64={image64} setImage64={setImage64} />
+                        )
+                    }
+                </form>
+            </div>
+        </>
+    )
 }
 
-export default App;
+export default App
