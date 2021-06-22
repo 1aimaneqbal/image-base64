@@ -147,6 +147,7 @@ nav svg {
 }
 .textareaContainer {
   display: flex;
+  width: 350px;
   flex-direction: column;
 }
 .textareaContainer textarea {
@@ -159,7 +160,7 @@ nav svg {
   border: 1px solid rgba(131, 131, 131, 0.25);
   resize: none;
   overflow-x: hidden;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(241, 241, 241);
   padding: 0.5rem;
   font-family: "Poppins", sans-serif;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
@@ -169,7 +170,7 @@ nav svg {
   cursor: pointer;
 }
 .textareaContainer textarea::-webkit-scrollbar-track {
-  background-color: rgb(241, 241, 241);
+  background-color: rgba(241, 241, 241,0);
 }
 .textareaContainer textarea::-webkit-scrollbar-thumb {
   background-color: rgb(80, 88, 236);
@@ -194,7 +195,20 @@ nav svg {
 .textareabtns button svg {
   height: 1rem;
   width: 1rem;
+  position: relative;
+  top: 1px;
 }
 .textareabtns button:nth-child(1) {
   width: 60%;
+}
+.textareaContainer h6{
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.25rem;
+  opacity: 0.4;
+}
+.textareabtns button span{
+  position: relative;
+  top: -2px;
 }
